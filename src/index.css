@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PhishGuard Design System - Professional Cybersecurity Theme */
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 210 20% 98%;
+    --foreground: 220 60% 12%;
+
+    /* Security Blue Primary */
+    --primary: 220 80% 25%;
+    --primary-foreground: 220 20% 98%;
+    --primary-glow: 220 100% 35%;
+
+    /* Trust & Safety Colors */
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 220 60% 15%;
+    
+    --accent: 195 100% 50%;
+    --accent-foreground: 220 20% 98%;
+    --accent-glow: 195 100% 60%;
+
+    /* Status Colors */
+    --success: 120 80% 35%;
+    --success-foreground: 120 20% 98%;
+    --warning: 45 100% 50%;
+    --warning-foreground: 45 20% 10%;
+    --danger: 0 85% 55%;
+    --danger-foreground: 0 20% 98%;
+
+    /* Surface Colors */
+    --card: 220 20% 99%;
+    --card-foreground: 220 60% 12%;
+    
+    --muted: 210 30% 96%;
+    --muted-foreground: 220 40% 45%;
+
+    /* Interactive */
+    --border: 220 30% 88%;
+    --input: 220 30% 92%;
+    --ring: 220 80% 35%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 80% 25%), hsl(220 100% 35%));
+    --gradient-accent: linear-gradient(135deg, hsl(195 100% 50%), hsl(200 100% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 80% 25%), hsl(195 100% 45%));
+    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 99%), hsl(210 30% 96%));
+
+    /* Shadows */
+    --shadow-security: 0 10px 40px -10px hsl(220 80% 25% / 0.2);
+    --shadow-glow: 0 0 40px hsl(220 100% 35% / 0.3);
+    --shadow-card: 0 4px 20px -2px hsl(220 40% 20% / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
+    @apply px-8 py-4 rounded-xl font-semibold text-lg;
+    @apply shadow-lg hover:shadow-xl transform hover:scale-105;
+    @apply transition-all duration-300;
+    box-shadow: var(--shadow-security);
+  }
+
+  .btn-hero:hover {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-secondary {
+    @apply bg-card border-2 border-primary text-primary;
+    @apply px-8 py-4 rounded-xl font-semibold text-lg;
+    @apply hover:bg-primary hover:text-primary-foreground;
+    @apply transition-all duration-300 transform hover:scale-105;
+  }
+
+  /* Security Cards */
+  .security-card {
+    @apply bg-card border border-border rounded-2xl;
+    @apply p-6 hover:shadow-lg transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .security-card:hover {
+    @apply border-primary/20 transform -translate-y-1;
+    box-shadow: var(--shadow-security);
+  }
+
+  /* Feature Icons */
+  .feature-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+    @apply bg-gradient-to-r from-accent to-accent-glow text-accent-foreground;
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Status Indicators */
+  .status-safe {
+    @apply bg-success/10 text-success border border-success/20 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-danger {
+    @apply bg-danger/10 text-danger border border-danger/20 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-warning {
+    @apply bg-warning/10 text-warning border border-warning/20 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  /* Gradient Backgrounds */
+  .bg-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-subtle {
+    background: var(--gradient-subtle);
+  }
+
+  /* Text Gradients */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Smooth Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
